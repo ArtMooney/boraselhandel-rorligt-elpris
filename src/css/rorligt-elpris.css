@@ -1,0 +1,134 @@
+p {
+  margin-bottom: 10px;
+  font-size: 76%;
+}
+
+a {
+  text-decoration: underline;
+}
+
+.rorligt-elpris-app {
+  background-color: #fff;
+  grid-template-rows: auto;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-auto-columns: 1fr;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  display: flex;
+}
+
+.elomrade {
+  z-index: 0;
+  outline-offset: 0px;
+  background-color: #fff;
+  outline: 1px solid #bebebe;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  position: relative;
+}
+
+.elomrade.selected {
+  z-index: 1;
+  outline-color: #f29091;
+}
+
+.elomrade.left {
+  border-right-width: 0;
+  border-top-left-radius: 1.2rem;
+  border-bottom-left-radius: 1.2rem;
+}
+
+.elomrade.right {
+  border-left-width: 0;
+  border-top-right-radius: 1.2rem;
+  border-bottom-right-radius: 1.2rem;
+}
+
+.rorligt-elpris-wrapper {
+  width: 100%;
+  height: 10rem;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  grid-template-rows: auto;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-auto-columns: 1fr;
+  display: grid;
+}
+
+.elpris-rubrik {
+  font-family: Strawford Bold Webfont, sans-serif;
+  font-weight: 700;
+}
+
+.rorligt-elpris {
+  color: #57a3af;
+  font-family: Strawford Bold Webfont, sans-serif;
+  font-size: 2.3rem;
+  font-weight: 700;
+  line-height: 2.3rem;
+}
+
+.elpris-wrapper {
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  margin-top: 1.1rem;
+  line-height: 2.3px;
+  display: flex;
+}
+
+.elpris-kwh {
+  color: #57a3af;
+  font-family: Strawford Light Webfont, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 300;
+  line-height: 0.8rem;
+}
+
+@media screen and (max-width: 767px) {
+  .rorligt-elpris {
+    font-size: 1.9rem;
+    line-height: 1.9rem;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .elomrade {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .elomrade.left {
+    border-top-right-radius: 1.2rem;
+    border-bottom-left-radius: 0;
+  }
+
+  .elomrade.right {
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 1.2rem;
+  }
+
+  .rorligt-elpris-wrapper {
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr;
+    grid-auto-rows: 1fr;
+  }
+}
+
+@font-face {
+  font-family: "Strawford Bold Webfont";
+  src: url("../fonts/strawford-bold-webfont.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Strawford Light Webfont";
+  src: url("../fonts/strawford-light-webfont.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
