@@ -54,20 +54,14 @@ export default {
       userPass: "kjzsdnfkjdsf87324",
       elomrade: null,
       spotPeriodPrices: [],
-      pricesArea1: "-",
-      pricesArea2: "-",
-      pricesArea3: "-",
-      pricesArea4: "-",
+      pricesArea1: "",
+      pricesArea2: "",
+      pricesArea3: "",
+      pricesArea4: "",
     };
   },
 
   async created() {
-    // this.spotPeriodPrices = await this.getCmsData(
-    //   `${
-    //     this.spotPeriodWebhook
-    //   }?searchstart=${this.getFirstDayOfCurrentMonth()}&searchstop=${this.getFormattedDate()}&searcharea=${3}`
-    // );
-
     this.spotPeriodPrices = await this.getApiData(this.spotPeriodWebhook);
     this.processPrices();
   },
@@ -89,7 +83,6 @@ export default {
             return response.json();
           })
           .then((result) => {
-            console.log(result);
             resolve(result);
           })
           .catch((error) => {
@@ -99,38 +92,12 @@ export default {
       });
     },
 
-    getFormattedDate(dateInput) {
-      const date = !dateInput ? new Date() : dateInput;
-
-      const year = date.getFullYear();
-      const month = String(date.getMonth() + 1).padStart(2, "0");
-      const day = String(date.getDate()).padStart(2, "0");
-
-      return `${year}-${month}-${day}`;
-    },
-
-    getFirstDayOfCurrentMonth() {
-      const currentDate = new Date();
-      const year = currentDate.getFullYear();
-      const month = currentDate.getMonth() + 1;
-
-      return `${year}-${String(month).padStart(2, "0")}-01`;
-    },
-
     processPrices() {
       for (const area of this.spotPeriodPrices) {
         if (area.searchArea === "SE1") this.pricesArea1 = area;
         if (area.searchArea === "SE2") this.pricesArea2 = area;
         if (area.searchArea === "SE3") this.pricesArea3 = area;
         if (area.searchArea === "SE4") this.pricesArea4 = area;
-      }
-    },
-
-    getCookie(name) {
-      var value = "; " + document.cookie;
-      var parts = value.split("; " + name + "=");
-      if (parts.length === 2) {
-        return parts.pop().split(";").shift();
       }
     },
   },
