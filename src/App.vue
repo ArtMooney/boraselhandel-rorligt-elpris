@@ -6,16 +6,18 @@
 
 <template>
   <div class="rorligt-elpris-app">
-    <form class="postal-form w-form">
-      <input
-        v-model="postalInput"
-        type="number"
-        class="postal-input w-input"
-        maxlength="256"
-        placeholder="Postnummer"
-      />
-      <p v-if="showErrorMessage" class="error-message">{{ errorMessage }}</p>
-    </form>
+    <div class="postal-form w-form">
+      <form class="postal-wrapper">
+        <input
+          v-model="postalInput"
+          type="number"
+          class="postal-input w-input"
+          maxlength="256"
+          placeholder="Postnummer"
+        />
+        <p v-if="showErrorMessage" class="error-message">{{ errorMessage }}</p>
+      </form>
+    </div>
 
     <div class="rorligt-elpris-wrapper">
       <div

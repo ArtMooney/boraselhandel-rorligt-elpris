@@ -101,7 +101,6 @@ a {
   max-width: 14rem;
   border-radius: 0.6rem;
   margin-bottom: 2rem;
-  margin-left: 7rem;
 }
 
 .postal-input::-ms-input-placeholder {
@@ -116,9 +115,15 @@ a {
   max-width: 14rem;
   margin-top: -2rem;
   margin-bottom: 2rem;
-  margin-left: 7rem;
   font-size: 76%;
   line-height: 140%;
+}
+
+.postal-wrapper {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  display: flex;
 }
 
 @media screen and (max-width: 767px) {
@@ -154,4 +159,26 @@ a {
     grid-template-columns: 1fr;
     grid-auto-rows: 1fr;
   }
+
+  .postal-input {
+    width: 100%;
+    max-width: none;
+  }
+
+  .error-message {
+    max-width: none;
+  }
+}
+
+#w-node-_051a9b96-4ead-e118-8a59-194af47cb073-cdc55134 {
+  grid-area: span 1 / span 1 / span 1 / span 1;
+}
+
+#w-node-_0ce87386-09bd-15c0-b072-0835fb14c6cc-cdc55134,
+#w-node-_91f649a3-bb70-a795-b83a-2447edc0e2f4-cdc55134,
+#w-node-cddf50a4-4c92-fe6b-0172-49fec9704d62-cdc55134,
+#w-node-_15d05f01-d5c1-4387-6d10-54988da43617-cdc55134 {
+  grid-area: span 1 / span 1 / span 1 / span 1;
+  align-self: stretch;
+  justify-self: stretch;
 }
