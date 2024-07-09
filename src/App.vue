@@ -1,5 +1,8 @@
 <template>
-  <div class="m-0 flex flex-col bg-white p-0">
+  <div
+    v-if="spotPeriodPrices.length > 0"
+    class="m-0 flex flex-col bg-white p-0"
+  >
     <div class="w-full">
       <form class="flex flex-col items-center">
         <input
