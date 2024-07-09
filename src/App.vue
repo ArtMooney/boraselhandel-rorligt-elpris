@@ -5,7 +5,7 @@
         <input
           v-model="postalInput"
           type="number"
-          class="mb-8 h-11 max-w-56 rounded border border-solid border-[#bebebe] px-4 py-0 text-base placeholder:text-[#d3d3d3]"
+          class="mb-8 mt-4 h-11 max-w-56 rounded-lg border border-solid border-[#bebebe] px-4 py-0 text-base placeholder:text-[#d3d3d3]"
           maxlength="256"
           placeholder="Postnummer"
         />
