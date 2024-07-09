@@ -29,7 +29,7 @@
         <div class="font-straw_bold text-base">Elområde 1</div>
         <div class="mt-4 flex flex-col items-end">
           <div class="font-straw_bold text-4xl text-[#57a3af]">
-            {{ pricesArea1.priceAverage }}
+            {{ pricesArea1.averagePrice }}
           </div>
           <div class="font-straw_light text-sm text-[#57a3af]">öre/kWh</div>
         </div>
@@ -44,7 +44,7 @@
         <div class="font-straw_bold text-base">Elområde 2</div>
         <div class="mt-4 flex flex-col items-end">
           <div class="font-straw_bold text-4xl text-[#57a3af]">
-            {{ pricesArea2.priceAverage }}
+            {{ pricesArea2.averagePrice }}
           </div>
           <div class="font-straw_light text-sm text-[#57a3af]">öre/kWh</div>
         </div>
@@ -59,7 +59,7 @@
         <div class="font-straw_bold text-base">Elområde 3</div>
         <div class="mt-4 flex flex-col items-end">
           <div class="font-straw_bold text-4xl text-[#57a3af]">
-            {{ pricesArea3.priceAverage }}
+            {{ pricesArea3.averagePrice }}
           </div>
           <div class="font-straw_light text-sm text-[#57a3af]">öre/kWh</div>
         </div>
@@ -74,7 +74,7 @@
         <div class="font-straw_bold text-base">Elområde 4</div>
         <div class="mt-4 flex flex-col items-end">
           <div class="font-straw_bold text-4xl text-[#57a3af]">
-            {{ pricesArea4.priceAverage }}
+            {{ pricesArea4.averagePrice }}
           </div>
           <div class="font-straw_light text-sm text-[#57a3af]">öre/kWh</div>
         </div>
@@ -89,9 +89,8 @@ export default {
 
   data() {
     return {
-      spotPeriodWebhook: "https://api.ngine.se/webhook/elhandel-getareas",
-      userName: "BorasElhandel",
-      userPass: "kjzsdnfkjdsf87324",
+      spotPeriodWebhook: "https://boraselhandel.framecore.se/getaverages",
+      apiKey: "PeKnqf7kFD2ejLYvv63a",
       elomrade: null,
       spotPeriodPrices: [],
       pricesArea1: "",
@@ -121,7 +120,7 @@ export default {
         var requestOptions = {
           method: "GET",
           headers: {
-            Authorization: "Basic " + btoa(this.userName + ":" + this.userPass),
+            Authorization: "Bearer " + this.apiKey,
           },
           redirect: "follow",
         };
@@ -143,10 +142,10 @@ export default {
 
     processPrices() {
       for (const area of this.spotPeriodPrices) {
-        if (area.searchArea === "SE1") this.pricesArea1 = area;
-        if (area.searchArea === "SE2") this.pricesArea2 = area;
-        if (area.searchArea === "SE3") this.pricesArea3 = area;
-        if (area.searchArea === "SE4") this.pricesArea4 = area;
+        if (area.area === "SE1") this.pricesArea1 = area;
+        if (area.area === "SE2") this.pricesArea2 = area;
+        if (area.area === "SE3") this.pricesArea3 = area;
+        if (area.area === "SE4") this.pricesArea4 = area;
       }
     },
 
