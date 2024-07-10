@@ -25,7 +25,7 @@
       <div
         :class="[
           elomrade === 0
-            ? 'z-10 mb-px mr-px flex flex-col items-center justify-center rounded-tl-[1.2rem] rounded-tr-[1.2rem] border-r-0 p-4 outline outline-1 outline-[#f29091] sm:rounded-bl-[1.2rem] sm:rounded-tr-none'
+            ? 'z-10 mb-px mr-px flex flex-col items-center justify-center rounded-tl-[1.2rem] rounded-tr-[1.2rem] border-r-0 bg-[#f29091]/15 p-4 outline outline-1 outline-[#f29091] sm:rounded-bl-[1.2rem] sm:rounded-tr-none'
             : 'z-0 mb-px mr-px flex flex-col items-center justify-center rounded-tl-[1.2rem] rounded-tr-[1.2rem] border-r-0 p-4 outline outline-1 outline-[#bebebe] sm:rounded-bl-[1.2rem] sm:rounded-tr-none',
         ]"
       >
@@ -40,7 +40,7 @@
       <div
         :class="[
           elomrade === 1
-            ? 'z-10 mb-px mr-px flex flex-col items-center justify-center p-4 outline outline-1 outline-[#f29091]'
+            ? 'z-10 mb-px mr-px flex flex-col items-center justify-center bg-[#f29091]/15 p-4 outline outline-1 outline-[#f29091]'
             : 'z-0 mb-px mr-px flex flex-col items-center justify-center p-4 outline outline-1 outline-[#bebebe]',
         ]"
       >
@@ -55,7 +55,7 @@
       <div
         :class="[
           elomrade === 2
-            ? 'z-10 mb-px mr-px flex flex-col items-center justify-center p-4 outline outline-1 outline-[#f29091]'
+            ? 'z-10 mb-px mr-px flex flex-col items-center justify-center bg-[#f29091]/15 p-4 outline outline-1 outline-[#f29091]'
             : 'z-0 mb-px mr-px flex flex-col items-center justify-center p-4 outline outline-1 outline-[#bebebe]',
         ]"
       >
@@ -70,7 +70,7 @@
       <div
         :class="[
           elomrade === 3
-            ? 'z-10 flex flex-col items-center justify-center rounded-bl-[1.2rem] rounded-br-[1.2rem] border-l-0 p-4 outline outline-1 outline-[#f29091] sm:rounded-bl-none sm:rounded-tr-[1.2rem]'
+            ? 'z-10 flex flex-col items-center justify-center rounded-bl-[1.2rem] rounded-br-[1.2rem] border-l-0 bg-[#f29091]/15 p-4 outline outline-1 outline-[#f29091] sm:rounded-bl-none sm:rounded-tr-[1.2rem]'
             : 'z-0 flex flex-col items-center justify-center rounded-bl-[1.2rem] rounded-br-[1.2rem] border-l-0 p-4 outline outline-1 outline-[#bebebe] sm:rounded-bl-none sm:rounded-tr-[1.2rem]',
         ]"
       >
