@@ -70,8 +70,8 @@
       <div
         :class="[
           elomrade === 3
-            ? 'z-10 flex flex-col items-center justify-center rounded-bl-[1.2rem] rounded-br-[1.2rem] border-l-0 bg-[#f29091]/15 p-4 outline outline-1 outline-[#f29091] sm:rounded-bl-none sm:rounded-tr-[1.2rem]'
-            : 'z-0 flex flex-col items-center justify-center rounded-bl-[1.2rem] rounded-br-[1.2rem] border-l-0 p-4 outline outline-1 outline-[#bebebe] sm:rounded-bl-none sm:rounded-tr-[1.2rem]',
+            ? 'z-10 mb-px mr-px flex flex-col items-center justify-center rounded-bl-[1.2rem] rounded-br-[1.2rem] border-l-0 bg-[#f29091]/15 p-4 outline outline-1 outline-[#f29091] sm:rounded-bl-none sm:rounded-tr-[1.2rem]'
+            : 'z-0 mb-px mr-px flex flex-col items-center justify-center rounded-bl-[1.2rem] rounded-br-[1.2rem] border-l-0 p-4 outline outline-1 outline-[#bebebe] sm:rounded-bl-none sm:rounded-tr-[1.2rem]',
         ]"
       >
         <div class="font-straw_bold text-base">Elområde 4</div>
