@@ -1,55 +1,85 @@
-<style scoped>
-@import "./css/normalize.css";
-@import "./css/components.css";
-@import "./css/rorligt-elpris.css";
-</style>
-
 <template>
-  <div class="rorligt-elpris-app">
-    <div class="postal-form w-form">
-      <form class="postal-wrapper">
+  <div
+    v-if="spotPeriodPrices.length > 0"
+    class="m-0 flex flex-col bg-white p-0"
+  >
+    <div class="w-full">
+      <form class="flex flex-col items-center">
         <input
           v-model="postalInput"
           type="number"
-          class="postal-input w-input"
+          class="mb-8 mt-4 h-11 max-w-56 rounded-lg border border-solid border-[#bebebe] px-4 py-0 text-base placeholder:text-[#d3d3d3]"
           maxlength="256"
           placeholder="Postnummer"
         />
-        <p v-if="showErrorMessage" class="error-message">{{ errorMessage }}</p>
+        <p
+          v-if="showErrorMessage"
+          class="-mt-8 mb-8 p-0 text-base text-red-600"
+        >
+          {{ errorMessage }}
+        </p>
       </form>
     </div>
 
-    <div class="rorligt-elpris-wrapper">
+    <div class="grid h-auto w-full grid-cols-1 gap-0 sm:h-40 sm:grid-cols-4">
       <div
-        :class="[elomrade === 0 ? 'elomrade left selected' : 'elomrade left']"
+        :class="[
+          elomrade === 0
+            ? 'z-10 mb-px mr-px flex flex-col items-center justify-center rounded-tl-[1.2rem] rounded-tr-[1.2rem] border-r-0 bg-[#f29091]/15 p-4 outline outline-1 outline-[#f29091] sm:rounded-bl-[1.2rem] sm:rounded-tr-none'
+            : 'z-0 mb-px mr-px flex flex-col items-center justify-center rounded-tl-[1.2rem] rounded-tr-[1.2rem] border-r-0 p-4 outline outline-1 outline-[#bebebe] sm:rounded-bl-[1.2rem] sm:rounded-tr-none',
+        ]"
       >
-        <div class="elpris-rubrik">Elområde 1</div>
-        <div class="elpris-wrapper">
-          <div class="rorligt-elpris">{{ pricesArea1.priceAverage }}</div>
-          <div class="elpris-kwh">öre/kWh</div>
-        </div>
-      </div>
-      <div :class="[elomrade === 1 ? 'elomrade selected' : 'elomrade']">
-        <div class="elpris-rubrik">Elområde 2</div>
-        <div class="elpris-wrapper">
-          <div class="rorligt-elpris">{{ pricesArea2.priceAverage }}</div>
-          <div class="elpris-kwh">öre/kWh</div>
-        </div>
-      </div>
-      <div :class="[elomrade === 2 ? 'elomrade selected' : 'elomrade']">
-        <div class="elpris-rubrik">Elområde 3</div>
-        <div class="elpris-wrapper">
-          <div class="rorligt-elpris">{{ pricesArea3.priceAverage }}</div>
-          <div class="elpris-kwh">öre/kWh</div>
+        <div class="font-straw_bold text-base">Elområde 1</div>
+        <div class="mt-4 flex flex-col items-end">
+          <div class="font-straw_bold text-4xl text-[#57a3af]">
+            {{ pricesArea1.averagePrice }}
+          </div>
+          <div class="font-straw_light text-sm text-[#57a3af]">öre/kWh</div>
         </div>
       </div>
       <div
-        :class="[elomrade === 3 ? 'elomrade right selected' : 'elomrade right']"
+        :class="[
+          elomrade === 1
+            ? 'z-10 mb-px mr-px flex flex-col items-center justify-center bg-[#f29091]/15 p-4 outline outline-1 outline-[#f29091]'
+            : 'z-0 mb-px mr-px flex flex-col items-center justify-center p-4 outline outline-1 outline-[#bebebe]',
+        ]"
       >
-        <div class="elpris-rubrik">Elområde 4</div>
-        <div class="elpris-wrapper">
-          <div class="rorligt-elpris">{{ pricesArea4.priceAverage }}</div>
-          <div class="elpris-kwh">öre/kWh</div>
+        <div class="font-straw_bold text-base">Elområde 2</div>
+        <div class="mt-4 flex flex-col items-end">
+          <div class="font-straw_bold text-4xl text-[#57a3af]">
+            {{ pricesArea2.averagePrice }}
+          </div>
+          <div class="font-straw_light text-sm text-[#57a3af]">öre/kWh</div>
+        </div>
+      </div>
+      <div
+        :class="[
+          elomrade === 2
+            ? 'z-10 mb-px mr-px flex flex-col items-center justify-center bg-[#f29091]/15 p-4 outline outline-1 outline-[#f29091]'
+            : 'z-0 mb-px mr-px flex flex-col items-center justify-center p-4 outline outline-1 outline-[#bebebe]',
+        ]"
+      >
+        <div class="font-straw_bold text-base">Elområde 3</div>
+        <div class="mt-4 flex flex-col items-end">
+          <div class="font-straw_bold text-4xl text-[#57a3af]">
+            {{ pricesArea3.averagePrice }}
+          </div>
+          <div class="font-straw_light text-sm text-[#57a3af]">öre/kWh</div>
+        </div>
+      </div>
+      <div
+        :class="[
+          elomrade === 3
+            ? 'z-10 mb-px mr-px flex flex-col items-center justify-center rounded-bl-[1.2rem] rounded-br-[1.2rem] border-l-0 bg-[#f29091]/15 p-4 outline outline-1 outline-[#f29091] sm:rounded-bl-none sm:rounded-tr-[1.2rem]'
+            : 'z-0 mb-px mr-px flex flex-col items-center justify-center rounded-bl-[1.2rem] rounded-br-[1.2rem] border-l-0 p-4 outline outline-1 outline-[#bebebe] sm:rounded-bl-none sm:rounded-tr-[1.2rem]',
+        ]"
+      >
+        <div class="font-straw_bold text-base">Elområde 4</div>
+        <div class="mt-4 flex flex-col items-end">
+          <div class="font-straw_bold text-4xl text-[#57a3af]">
+            {{ pricesArea4.averagePrice }}
+          </div>
+          <div class="font-straw_light text-sm text-[#57a3af]">öre/kWh</div>
         </div>
       </div>
     </div>
@@ -62,9 +92,8 @@ export default {
 
   data() {
     return {
-      spotPeriodWebhook: "https://api.ngine.se/webhook/elhandel-getareas",
-      userName: "BorasElhandel",
-      userPass: "kjzsdnfkjdsf87324",
+      spotPeriodWebhook: "https://boraselhandel.framecore.se/getaverages",
+      apiKey: "PeKnqf7kFD2ejLYvv63a",
       elomrade: null,
       spotPeriodPrices: [],
       pricesArea1: "",
@@ -94,7 +123,7 @@ export default {
         var requestOptions = {
           method: "GET",
           headers: {
-            Authorization: "Basic " + btoa(this.userName + ":" + this.userPass),
+            Authorization: "Bearer " + this.apiKey,
           },
           redirect: "follow",
         };
@@ -116,10 +145,10 @@ export default {
 
     processPrices() {
       for (const area of this.spotPeriodPrices) {
-        if (area.searchArea === "SE1") this.pricesArea1 = area;
-        if (area.searchArea === "SE2") this.pricesArea2 = area;
-        if (area.searchArea === "SE3") this.pricesArea3 = area;
-        if (area.searchArea === "SE4") this.pricesArea4 = area;
+        if (area.area === "SE1") this.pricesArea1 = area;
+        if (area.area === "SE2") this.pricesArea2 = area;
+        if (area.area === "SE3") this.pricesArea3 = area;
+        if (area.area === "SE4") this.pricesArea4 = area;
       }
     },
 
